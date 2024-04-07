@@ -21,7 +21,6 @@ public class Carrinho {
             listaItem.mostraItem();
         }
     }
-
     public void addListaItens(ItemCompra item) {
         listaItens.add(item);
     }

@@ -39,9 +39,8 @@ public class ItemCompra {
     }
 
     public void mostraItem(){
-        System.out.printf("%s   R$%.2f      %d         R$%.2f\n",getDescricao(), getPreco(), getQuantidade(), calcSubtotal());
+        System.out.println(String.format("%-40s %-11s %-12s %-17s", getDescricao(), "R$"+getPreco(), getQuantidade(), "R$"+calcSubtotal()));
     }
-
     public double calcSubtotal(){
         return this.quantidade * this.preco;
     }

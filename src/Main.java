@@ -56,14 +56,24 @@ public class Main {
 
 
     public static void exibeCarrinho(Carrinho carrinho){
-        System.out.println("                Item                   Preço   Quantidade   Subtotal");
-        System.out.println("____________________________________________________________________");
+        String linha = repeat("-", 80);
+        double valores = carrinho.somaValores();
+        String desconto = String.format("%.2f", carrinho.calcDesconto());
+        String valorAPagar = String.format("%.2f", carrinho.getValorPagar());
+
+        System.out.println(linha);
+        System.out.println(String.format("|%-40s|%-10s|%-15s|%-10s|", "Item","Preço","Quantidade", "Subtotal"));
+        System.out.println(linha);
         carrinho.mostraCarrinho();
-        System.out.println();
-        System.out.printf("                                          Subtotal           R$%.2f\n",carrinho.somaValores());
-        System.out.printf("                                          Descontos          R$-%.2f\n",carrinho.calcDesconto());
-        System.out.println("                                         ___________________________");
-        System.out.printf("                                           Total             R$%.2f\n",carrinho.getValorPagar());
+        System.out.println(linha);
+        System.out.println(String.format("|%-51s %-15s %-10s|","Subtotal"," ","R$"+valores));
+        System.out.println(String.format("|%-51s %-15s %-10s|","Descontos"," ","R$"+desconto));
+        System.out.println(linha);
+        System.out.println(String.format("|%-51s %-15s %-10s|","Total"," ","R$"+valorAPagar));
+        System.out.println(linha);
+    }
+    public static String repeat(String str, int times) {
+        return new String(new char[times]).replace("\0", str);
     }
 
 }
